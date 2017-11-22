@@ -8,7 +8,7 @@ Le garage représente un... garage
 
 # Sitemap
 
-[](/reference/sitemap-crud-demo.png)
+![](/reference/sitemap-crud-demo.png)
 
 # CRUD
 
