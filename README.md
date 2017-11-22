@@ -6,6 +6,10 @@ Le garage représente un... garage
 * Nom (string 100)
 * Marque (string 50)
 
+# Sitemap
+
+[](/reference/sitemap-crud-demo.png)
+
 # CRUD
 
 ## Create
@@ -25,26 +29,29 @@ POST /doadd.php
 ```sql
 SELECT `id`, `nom`, `marque` FROM `garage`;
 ```
-GET index.php
+GET /index.php
 
 ### Visualiser les détails
 ```sql
 SELECT `id`, `nom`, `marque` FROM `garage` WHERE id = 1;
 ```
+GET /details.php?id=:id
 
 ## Update
 
 ### Formulaire
+GET /edit.php?id=:id
 
 ### Modifier les données dans la base
 ```sql
 UPDATE `garage` SET `marque` = "Chevrolet" WHERE id = 2;
 ``` 
+POST /doedit.php
 
 ## Delete
 
 ### demande de confirmation
-GET /delete.php
+GET /delete.php?id=:id
 
 ### Effacer dans la base
 ```sql

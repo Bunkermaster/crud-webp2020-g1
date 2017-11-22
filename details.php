@@ -1,6 +1,6 @@
 <?php
 if (!isset($_GET['id'])) {
-    header('Location: index.php?error=noidprovideddelete');
+    header('Location: index.php?error=noidprovideddetails');
     exit;
 }
 require_once "connexion.php";
@@ -22,16 +22,17 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>T'es sur?</title>
+    <title>Details de <?=$row['nom']?></title>
 </head>
 <body>
 <?php
-require "header.php";
+    require "header.php";
 ?>
-<form action="dodelete.php" method="post">
-    <input type="hidden" name="id" value="<?=$row['id']?>">
-    <label for="">T'es sur de vouloir supprimer <?=$row['nom']?></label><br>
-    <input type="submit" value="Je suis certain! OUIIII!">
-</form>
+    <h1><?=$row['nom']?></h1>
+    <p><?=$row['marque']?></p>
+    <ul>
+        <li><a href="delete.php?id=<?=$row['id']?>">Supprimer</a></li>
+        <li><a href="edit.php?id=<?=$row['id']?>">Modifier</a></li>
+    </ul>
 </body>
 </html>

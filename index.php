@@ -22,6 +22,13 @@ $stmt->execute();
     </style>
 </head>
 <body>
+<?php
+if (isset($_GET['error'])) {
+?>
+    <div style="color: red"><?=$_GET['error']?></div>
+<?php
+}
+?>
     <h1>Garage ¬_¬</h1>
     <a href="add.php">Ajouter</a>
     <table cellspacing="0" cellpadding="0" width="100%">
@@ -34,10 +41,11 @@ $stmt->execute();
         <?php while(false !== $row = $stmt->fetch(PDO::FETCH_ASSOC)):?>
         <tr>
             <td><?=$row['id']?></td>
-            <td><?=$row['nom']?></td>
+            <td><a href="details.php?id=<?=$row['id']?>"><?=$row['nom']?></a></td>
             <td><?=$row['marque']?></td>
             <td>
                 <a href="delete.php?id=<?=$row['id']?>">Supprimer</a>
+                <a href="edit.php?id=<?=$row['id']?>">Modifier</a>
             </td>
         </tr>
         <?php endwhile;?>
