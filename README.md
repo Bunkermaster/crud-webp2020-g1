@@ -11,11 +11,13 @@ Le garage représente un... garage
 ## Create
 
 ### Formulaire
+GET /add.php
 
 ### Ajout dans la base de données
 ```sql
 INSERT INTO `garage` (`nom`, `marque`) VALUES ('Stephane', 'Renault');
 ```
+POST /doadd.php
 
 ## Read
 
@@ -23,6 +25,7 @@ INSERT INTO `garage` (`nom`, `marque`) VALUES ('Stephane', 'Renault');
 ```sql
 SELECT `id`, `nom`, `marque` FROM `garage`;
 ```
+GET index.php
 
 ### Visualiser les détails
 ```sql
@@ -41,9 +44,10 @@ UPDATE `garage` SET `marque` = "Chevrolet" WHERE id = 2;
 ## Delete
 
 ### demande de confirmation
+GET /delete.php
 
 ### Effacer dans la base
 ```sql
 DELETE FROM `garage` WHERE id = 2;
 ```
-
+POST /dodelete.php

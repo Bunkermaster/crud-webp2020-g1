@@ -1,9 +1,5 @@
 <?php
-try {
-    $conn = new PDO('mysql:host=localhost;dbname=demo-garage-lol', 'root', 'root');
-} catch(PDOException $exception) {
-    die("Arrrrrghhhh X_x");
-}
+require_once "connexion.php";
 $requete = "SELECT 
   `id`, 
   `nom`, 
@@ -27,6 +23,7 @@ $stmt->execute();
 </head>
 <body>
     <h1>Garage ¬_¬</h1>
+    <a href="add.php">Ajouter</a>
     <table cellspacing="0" cellpadding="0" width="100%">
         <tr>
             <th>id</th>
@@ -39,7 +36,9 @@ $stmt->execute();
             <td><?=$row['id']?></td>
             <td><?=$row['nom']?></td>
             <td><?=$row['marque']?></td>
-            <td></td>
+            <td>
+                <a href="delete.php?id=<?=$row['id']?>">Supprimer</a>
+            </td>
         </tr>
         <?php endwhile;?>
     </table>
